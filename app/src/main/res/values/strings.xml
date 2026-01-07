@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Sample APP</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="fav">Favuorites</string>
+    <string name="profile">Profile</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="facebook_app_id">1514793769664982</string>
+    <string name="fb_login_protocol_scheme">fb1514793769664982</string>
+    <string name="facebook_client_token">19e8cc2a092ce800d15663aae591a95d</string>
+
+    <string name="check_name">I agrre to the terms and condeitions</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_size">20dp</dimen>
+    <dimen name="ui_size">15dp</dimen>
+    <dimen name="new_size">10dp</dimen>
+    <dimen name="img_size">100dp</dimen>
+    <dimen name="img_brdr_size">100dp</dimen>
+    <dimen name="text_size">16dp</dimen>
+    <dimen name="box_size">300dp</dimen>
+</resources>

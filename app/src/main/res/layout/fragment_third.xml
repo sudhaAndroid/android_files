@@ -1,0 +1,37 @@
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    android:padding="16dp">
+    <TableRow>
+        <TextView
+            android:layout_column="0"
+            android:text="Name"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_column="1"
+            android:text="Age"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_column="2"
+            android:text="Occupation"
+            android:textStyle="bold" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="John Doe" />
+        <TextView
+            android:text="30" />
+        <TextView
+            android:text="Developer" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="Jane Smith" />
+        <TextView
+            android:text="25" />
+        <TextView
+            android:text="Designer" />
+    </TableRow>
+</TableLayout>
