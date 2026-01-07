@@ -36,6 +36,9 @@
         android:theme="@style/Theme.CompleCourseProject"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".unitTest.DashboardActivity"
             android:exported="false" />
         <activity
