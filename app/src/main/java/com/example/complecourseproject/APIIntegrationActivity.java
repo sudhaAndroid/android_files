@@ -36,13 +36,24 @@ public class APIIntegrationActivity extends AppCompatActivity {
         //code to integrate api url with java code
         ApiService apiService = RetrofitClient.getApiService();
         Call<List<User>> call = apiService.getPostDetails();
+        /*call.enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+
+            }
+        });*/
 
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 Log.d("checkResponse",""+response.body().size());
                 userList.addAll(response.body());
-                addListToRecycler(userList);
+                addListToRecycler(userList);//userddefined mthd
 
             }
 

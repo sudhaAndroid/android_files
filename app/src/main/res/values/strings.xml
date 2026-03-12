@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sample APP</string>
+    <string name="app_name">Basic APP</string>
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="fav">Favuorites</string>

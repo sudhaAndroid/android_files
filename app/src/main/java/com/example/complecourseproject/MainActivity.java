@@ -104,43 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CallbackManager callbackManager;
     private LoginButton loginButton;
-    String response = "{\n" +
-            "  \"status\": \"success\",\n" +
-            "  \"user\": {\n" +
-            "    \"id\": 101,\n" +
-            "    \"name\": \"Sudha Pandian\",\n" +
-            "    \"email\": \"sudha@example.com\",\n" +
-            "    \"orders\": [\n" +
-            "      {\n" +
-            "        \"order_id\": 1001,\n" +
-            "        \"date\": \"2025-10-22\",\n" +
-            "        \"items\": [\n" +
-            "          {\n" +
-            "            \"product\": \"Mobile Phone\",\n" +
-            "            \"price\": 12000,\n" +
-            "            \"quantity\": 1\n" +
-            "          },\n" +
-            "          {\n" +
-            "            \"product\": \"Phone Case\",\n" +
-            "            \"price\": 500,\n" +
-            "            \"quantity\": 2\n" +
-            "          }\n" +
-            "        ]\n" +
-            "      },\n" +
-            "      {\n" +
-            "        \"order_id\": 1002,\n" +
-            "        \"date\": \"2025-10-20\",\n" +
-            "        \"items\": [\n" +
-            "          {\n" +
-            "            \"product\": \"Laptop\",\n" +
-            "            \"price\": 55000,\n" +
-            "            \"quantity\": 1\n" +
-            "          }\n" +
-            "        ]\n" +
-            "      }\n" +
-            "    ]\n" +
-            "  }\n" +
-            "}\n";
+
 
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 100;
@@ -160,6 +124,13 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.signInButton).setOnClickListener(v -> signIn());
         findViewById(R.id.signOutButton).setOnClickListener(v -> signOut());
 
+        // Load Ad
+        adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
+
+        //ads Initialised
         MobileAds.initialize(this, initializationStatus -> {});
 
         // To get Device Id
@@ -181,41 +152,7 @@ public class MainActivity extends AppCompatActivity {
                         .build()
         );
 
-        // response
-        try {
-            JSONObject root = new JSONObject(response);
-            String status = root.getString("status");
 
-
-            JSONObject userObj = root.getJSONObject("user");
-            String userName = userObj.getString("name");
-            String userEmail = userObj.getString("email");
-
-            JSONArray ordersArray = userObj.getJSONArray("orders");
-            for (int i = 0; i < ordersArray.length(); i++) {
-                JSONObject order = ordersArray.getJSONObject(i);
-                int orderId = order.getInt("order_id");
-                String orderDate = order.getString("date");
-
-                JSONArray itemsArray = order.getJSONArray("items");
-                for (int j = 0; j < itemsArray.length(); j++) {
-                    JSONObject item = itemsArray.getJSONObject(j);
-                    String product = item.getString("product");
-                    int price = item.getInt("price");
-                    int quantity = item.getInt("quantity");
-
-                    Log.d("Item", "Product: " + product + ", Price: " + price + ", Qty: " + quantity);
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        // Load Ad
-        adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
 
         //To find keyhash
         try {
@@ -261,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // network connectivity
         // Register receiver dynamically (lifecycle demo)
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(networkReceiver, filter);

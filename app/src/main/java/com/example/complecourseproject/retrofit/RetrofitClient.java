@@ -31,4 +31,11 @@ public class RetrofitClient {
         return retrofit.create(ApiService.class);
 
     }
+
+    public static int getMethod(){
+        return 0;
+    }
+    public void getMthd(){
+
+    }
 }
